@@ -37,6 +37,7 @@
           <a class="story-keep-unread" href="#">
             <i class="icon-check"></i> Keep unread
           </a>
+          <%= render_partial :instapaper, { story: story } %>
           <a class="story-permalink" href="<%= story.permalink %>">
             <i class="icon-external-link"></i>
           </a>
