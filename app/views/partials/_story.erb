@@ -25,8 +25,6 @@
       <div class="story-body">
         <h1><a href="<%=story.permalink %>"><%= story.title %></a></h1>
         <%= story.body %>
-        <br/>
-        derp
       </div>
       <div class="row-fluid story-actions-container">
         <div class="pull-left">
@@ -35,7 +33,6 @@
           </span>
         </div>
         <div class="pull-right story-actions">
-          <%= render_partial :instapaper, { story: story } %>
           <a class="story-keep-unread" href="#">
             <i class="icon-check"></i> Keep unread
           </a>
