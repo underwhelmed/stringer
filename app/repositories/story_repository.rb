@@ -25,7 +25,7 @@ class StoryRepository
   end
 
   def self.unread
-    Story.where(is_read: false).order("published desc")
+    Story.where(is_read: false).order("published desc").includes(:feed)
   end
 
   def self.unread_since_id(since_id)
@@ -33,12 +33,12 @@ class StoryRepository
   end
 
   def self.read(page = 1)
-    Story.where(is_read: true)
+    Story.where(is_read: true).includes(:feed)
       .order("published desc").page(page).per_page(20)
   end
 
   def self.starred(page = 1)
-    Story.where(is_starred: true)
+    Story.where(is_starred: true).includes(:feed)
           .order("published desc").page(page).per_page(20)
   end
 
@@ -50,12 +50,16 @@ class StoryRepository
     sanitized_content = ""
 
     if entry.content
-      sanitized_content = entry.content.sanitize
+      sanitized_content = sanitize(entry.content)
     elsif entry.summary
-      sanitized_content = entry.summary.sanitize
+      sanitized_content = sanitize(entry.summary)
     end
 
     expand_absolute_urls(sanitized_content, entry.url)
+  end
+
+  def self.sanitize(content)
+    Loofah.fragment(content.gsub(/<wbr>/i, "")).scrub!(:prune).to_s
   end
 
   def self.expand_absolute_urls(content, base_url)
