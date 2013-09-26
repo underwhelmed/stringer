@@ -54,6 +54,9 @@ GEM
       rest-client
       simplecov (>= 0.7)
       thor
+<<<<<<< HEAD
+    curb (0.8.4)
+=======
     curb (0.8.3)
     debugger (1.6.1)
       columnize (>= 0.3.1)
@@ -61,6 +64,7 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
+>>>>>>> upstream/master
     delayed_job (3.0.5)
       activesupport (~> 3.0)
     delayed_job_active_record (0.4.4)
@@ -78,7 +82,13 @@ GEM
     i18n (0.6.4)
     jsmin (1.0.1)
     kgio (2.8.0)
+<<<<<<< HEAD
+    loofah (1.2.1)
+      nokogiri (>= 1.4.4)
+    method_source (0.8.1)
+=======
     method_source (0.8.2)
+>>>>>>> upstream/master
     mime-types (1.23)
     multi_json (1.7.7)
     nokogiri (1.5.10)
@@ -157,6 +167,24 @@ DEPENDENCIES
   faker
   feedbag!
   feedzirra!
+<<<<<<< HEAD
+  foreman
+  highline
+  i18n
+  loofah
+  nokogiri
+  pg
+  pry
+  rack-test
+  racksh
+  rake
+  rspec
+  rspec-html-matchers
+  shotgun
+  sinatra
+  sinatra-activerecord
+  sinatra-assetpack
+=======
   foreman (~> 0.63.0)
   formatador (~> 0.2.4)
   highline (~> 1.6.19)
@@ -176,6 +204,7 @@ DEPENDENCIES
   sinatra (~> 1.4.2)
   sinatra-activerecord (~> 1.2.2)
   sinatra-assetpack (~> 0.2.2)
+>>>>>>> upstream/master
   sinatra-contrib!
   sinatra-flash
   sqlite3
