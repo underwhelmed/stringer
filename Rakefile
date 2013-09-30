@@ -35,7 +35,7 @@ end
 
 desc "Clean up old stories that are read and unstarred"
 task :cleanup_old_stories, :number_of_days do |t, args|
-  args.with_defaults(:number_of_days => 21)
+  args.with_defaults(:number_of_days => 10)
   RemoveOldStories.remove!(args[:number_of_days].to_i)
 end
 
