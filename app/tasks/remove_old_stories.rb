@@ -14,4 +14,8 @@ class RemoveOldStories
   def self.pruned_feeds(stories)
     FeedRepository.fetch_by_ids(stories.map(&:feed_id))
   end
+  
+  def self.read_all()
+    MarkAllAsRead.new(StoryRepository.unread.map {|s| s.id }).mark_as_read
+  end
 end
